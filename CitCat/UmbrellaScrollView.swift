@@ -1,18 +1,19 @@
 //
-//  ViewController.swift
+//  UmbrellaScrollView.swift
 //  CitCat
 //
-//  Created by Larry Du on 3/17/22.
+//  Created by bingchilling1 on 6/1/22.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
-    /*
+class UmbrellaScrollView: UIScrollView {
+    
+    @IBOutlet var view: UIView!
     @IBOutlet var gridView: GridView!
     @IBOutlet var tempImageView: UIImageView!
     @IBOutlet var mainImageView: UIImageView!
-    */
+    
     var lastPoint: CGPoint = CGPoint.zero
     var color: UIColor = UIColor.black
     var brushWidth: CGFloat = 3.0
@@ -22,16 +23,9 @@ class ViewController: UIViewController {
     var gridWidth: CGFloat = 128.0
     var gridHeight: CGFloat = 128.0 //are these supposed to be Floats or otherwise? idk
     var grid: Bool = false
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        print("viewDidLoad")
-        //gridView.draw(view.bounds)
-    }
-    /*
+        
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print("touchesBegan")
+        //print("touchesBegan")
         guard let touch = touches.first else { return  }
         lastPoint = touch.location(in: view)
         if grid {
@@ -127,6 +121,7 @@ class ViewController: UIViewController {
         tempImageView.image = UIGraphicsGetImageFromCurrentImageContext()
         tempImageView.alpha = opacity
         UIGraphicsEndImageContext()
-    }*/
+    }
     
 }
+

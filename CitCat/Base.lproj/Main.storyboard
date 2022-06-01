@@ -17,16 +17,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nJI-o9-a2W" customClass="GridView" customModule="CitCat" customModuleProvider="target">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5fG-Xg-A3s" customClass="UmbrellaScrollView" customModule="CitCat" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                            </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iPr-1g-IrZ">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ul4-pP-0be">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
-                            </imageView>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1iK-B2-7BN">
+                                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nJI-o9-a2W" customClass="GridView" customModule="CitCat" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            </view>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iPr-1g-IrZ">
+                                                <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ul4-pP-0be">
+                                                <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="1iK-B2-7BN" firstAttribute="height" secondItem="BSN-wv-PGk" secondAttribute="height" priority="250" id="95K-8o-Mc9"/>
+                                    <constraint firstItem="1iK-B2-7BN" firstAttribute="trailing" secondItem="kTZ-Xe-OIH" secondAttribute="trailing" id="Cra-Wr-xD2"/>
+                                    <constraint firstItem="1iK-B2-7BN" firstAttribute="bottom" secondItem="kTZ-Xe-OIH" secondAttribute="bottom" id="DHA-de-qHi"/>
+                                    <constraint firstItem="1iK-B2-7BN" firstAttribute="leading" secondItem="kTZ-Xe-OIH" secondAttribute="leading" id="GRB-Di-Ia7"/>
+                                    <constraint firstItem="1iK-B2-7BN" firstAttribute="width" secondItem="BSN-wv-PGk" secondAttribute="width" priority="250" id="UQY-Vt-QqP"/>
+                                    <constraint firstItem="1iK-B2-7BN" firstAttribute="top" secondItem="kTZ-Xe-OIH" secondAttribute="top" id="teo-4I-T31"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="kTZ-Xe-OIH"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="BSN-wv-PGk"/>
+                                <connections>
+                                    <outlet property="gridView" destination="nJI-o9-a2W" id="a3q-Tg-bdE"/>
+                                    <outlet property="mainImageView" destination="ul4-pP-0be" id="Ah4-ky-L8L"/>
+                                    <outlet property="tempImageView" destination="iPr-1g-IrZ" id="8Ye-kv-Wav"/>
+                                    <outlet property="view" destination="1iK-B2-7BN" id="XbI-hW-SK1"/>
+                                </connections>
+                            </scrollView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Color: Black" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qYA-Ds-o5V">
                                 <rect key="frame" x="155" y="72" width="123" height="58"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -39,7 +69,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Reset"/>
                                 <connections>
-                                    <action selector="resetPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Aeu-R4-AzP"/>
+                                    <action selector="resetPressed:" destination="5fG-Xg-A3s" eventType="touchUpInside" id="qtC-h9-RlY"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1IL-Qh-MOv">
@@ -47,7 +77,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Eraser"/>
                                 <connections>
-                                    <action selector="eraserMode:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HHv-1L-VlK"/>
+                                    <action selector="eraserMode:" destination="5fG-Xg-A3s" eventType="touchUpInside" id="Ccb-lU-KsK"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ybb-9S-Kjx">
@@ -55,7 +85,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Draw"/>
                                 <connections>
-                                    <action selector="drawMode:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fuq-js-y74"/>
+                                    <action selector="drawMode:" destination="5fG-Xg-A3s" eventType="touchUpInside" id="TIy-nd-zGw"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4kY-sZ-zOJ">
@@ -63,7 +93,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="SwitchStroke"/>
                                 <connections>
-                                    <action selector="switchStroke:" destination="BYZ-38-t0r" eventType="touchUpInside" id="G52-XC-C81"/>
+                                    <action selector="switchStroke:" destination="5fG-Xg-A3s" eventType="touchUpInside" id="qfi-I0-1v5"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NkO-FB-ZZl" userLabel="GridMode">
@@ -72,32 +102,19 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="GridMode"/>
                                 <connections>
-                                    <action selector="gridMode:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DcV-05-5s0"/>
+                                    <action selector="gridMode:" destination="5fG-Xg-A3s" eventType="touchUpInside" id="bqB-l3-21M"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="iPr-1g-IrZ" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="1sm-3B-jmp"/>
-                            <constraint firstAttribute="top" secondItem="ul4-pP-0be" secondAttribute="top" id="3K4-SO-7fT"/>
-                            <constraint firstItem="nJI-o9-a2W" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="5ps-b4-EH4"/>
-                            <constraint firstItem="iPr-1g-IrZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="6Z2-0R-F2d"/>
-                            <constraint firstItem="nJI-o9-a2W" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Bby-S1-nka"/>
-                            <constraint firstAttribute="bottom" secondItem="nJI-o9-a2W" secondAttribute="bottom" id="NYt-V2-Hta"/>
-                            <constraint firstItem="ul4-pP-0be" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="SVx-1e-QEv"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ul4-pP-0be" secondAttribute="trailing" id="SbE-mu-Rbl"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iPr-1g-IrZ" secondAttribute="trailing" id="T1t-Rv-jHd"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nJI-o9-a2W" secondAttribute="trailing" id="UmP-XX-w0M"/>
-                            <constraint firstAttribute="top" secondItem="iPr-1g-IrZ" secondAttribute="top" id="cIN-8x-I16"/>
-                            <constraint firstItem="ul4-pP-0be" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="tfw-sN-Kqr"/>
+                            <constraint firstItem="5fG-Xg-A3s" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="33P-kp-vHd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5fG-Xg-A3s" secondAttribute="trailing" id="9SZ-k9-Ij1"/>
+                            <constraint firstAttribute="bottom" secondItem="5fG-Xg-A3s" secondAttribute="bottom" id="kPs-bt-Xkd"/>
+                            <constraint firstItem="5fG-Xg-A3s" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="mmF-4r-KOM"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="gridView" destination="nJI-o9-a2W" id="yAz-ar-2d9"/>
-                        <outlet property="mainImageView" destination="ul4-pP-0be" id="lw3-kv-fHO"/>
-                        <outlet property="tempImageView" destination="iPr-1g-IrZ" id="d0Q-Rl-vwv"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
