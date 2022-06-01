@@ -8,11 +8,14 @@
 import UIKit
 
 class ViewController: UIViewController {
-    /*
+    
     @IBOutlet var gridView: GridView!
     @IBOutlet var tempImageView: UIImageView!
     @IBOutlet var mainImageView: UIImageView!
-    */
+    @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet var umbrellaView: UmbrellaView!
+    
+    /*
     var lastPoint: CGPoint = CGPoint.zero
     var color: UIColor = UIColor.black
     var brushWidth: CGFloat = 3.0
@@ -22,12 +25,21 @@ class ViewController: UIViewController {
     var gridWidth: CGFloat = 128.0
     var gridHeight: CGFloat = 128.0 //are these supposed to be Floats or otherwise? idk
     var grid: Bool = false
-    
+    */
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         print("viewDidLoad")
-        //gridView.draw(view.bounds)
+        scrollView.isScrollEnabled = false
+        umbrellaView.noDraw = false
+        gridView.gridWidth = gridView.bounds.width / 10
+        gridView.gridHeight = gridView.bounds.height / 10
+    }
+    
+    @IBAction func scrollSwitch(_ sender: Any) {
+        scrollView.isScrollEnabled = !scrollView.isScrollEnabled
+        umbrellaView.noDraw = !umbrellaView.noDraw //<-this seems bad (lots of cross referencing)
+        print("Scroll Mode: \(scrollView.isScrollEnabled)")
     }
     /*
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

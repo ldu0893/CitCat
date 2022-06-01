@@ -19,16 +19,16 @@ class UmbrellaView: UIView {
     var opacity: CGFloat = 1.0
     var straight: Bool = true
     
-    var gridWidth: CGFloat = 128.0
-    var gridHeight: CGFloat = 128.0 //are these supposed to be Floats or otherwise? idk
     var grid: Bool = false
+    
+    var noDraw: Bool = false
         
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         //print("touchesBegan")
         guard let touch = touches.first else { return  }
         lastPoint = touch.location(in: self)
         if grid {
-            lastPoint = CGPoint(x: round(lastPoint.x / gridWidth) * gridWidth, y: round(lastPoint.y / gridHeight) * gridHeight)
+            lastPoint = CGPoint(x: round(lastPoint.x / gridView.gridWidth) * gridView.gridWidth, y: round(lastPoint.y / gridView.gridHeight) * gridView.gridHeight)
         }
         
         
@@ -42,8 +42,8 @@ class UmbrellaView: UIView {
         var actualPoint = currentPoint
         
         if grid {
-            actualPoint = CGPoint(x: round(actualPoint.x / gridWidth) * gridWidth, y: round(actualPoint.y / gridHeight) * gridHeight)
-            if (lastPoint == actualPoint) { return  } //dunno if this works
+            actualPoint = CGPoint(x: round(actualPoint.x / gridView.gridWidth) * gridView.gridWidth, y: round(actualPoint.y / gridView.gridHeight) * gridView.gridHeight)
+            if lastPoint == actualPoint { return }
             print(actualPoint.y - lastPoint.y)
             drawLine(from: lastPoint, to: actualPoint)
             lastPoint = actualPoint
@@ -102,6 +102,9 @@ class UmbrellaView: UIView {
        
     
     func drawLine(from fromPoint: CGPoint, to toPoint: CGPoint) {
+        
+        if noDraw { return }
+        
         UIGraphicsBeginImageContext(self.frame.size)
         
         guard let context = UIGraphicsGetCurrentContext() else { return }

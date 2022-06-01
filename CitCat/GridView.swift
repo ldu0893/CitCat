@@ -8,8 +8,8 @@
 import UIKit
 
 class GridView: UIView {
-    var gridWidth = 128
-    var gridHeight = 128
+    var gridWidth: CGFloat = 0.0
+    var gridHeight: CGFloat = 0.0
     var lineWidth: CGFloat = 1.0
     var lineColor: CGColor = UIColor.gray.cgColor
     
@@ -19,11 +19,11 @@ class GridView: UIView {
             context.setLineWidth(lineWidth)
             context.setStrokeColor(lineColor)
 
-            let numberOfColumns = Int(rect.width) / Int(gridWidth)
-            for i in 1...numberOfColumns {
+            let numberOfColumns: CGFloat = rect.width / gridWidth
+            for i in 1...Int(numberOfColumns) {
                 var startPoint = CGPoint.zero
                 var endPoint = CGPoint.zero
-                startPoint.x = CGFloat(gridWidth * i)
+                startPoint.x = CGFloat(gridWidth * CGFloat(i))
                 startPoint.y = 0.0
                 endPoint.x = startPoint.x
                 endPoint.y = frame.size.height
@@ -31,12 +31,12 @@ class GridView: UIView {
                 context.addLine(to: CGPoint(x: endPoint.x, y: endPoint.y))
                 context.strokePath()
             }
-            let numberOfRows = Int(rect.height) / Int(gridHeight)
-            for j in 1...numberOfRows {
+            let numberOfRows: CGFloat = rect.height / gridHeight
+            for j in 1...Int(numberOfRows) {
                 var startPoint = CGPoint.zero
                 var endPoint = CGPoint.zero
                 startPoint.x = 0.0
-                startPoint.y = CGFloat(gridHeight * j)
+                startPoint.y = CGFloat(gridHeight * CGFloat(j))
                 endPoint.x = frame.size.width
                 endPoint.y = startPoint.y
                 context.move(to: CGPoint(x: startPoint.x, y: startPoint.y))
