@@ -17,10 +17,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5fG-Xg-A3s" customClass="UmbrellaScrollView" customModule="CitCat" customModuleProvider="target">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5fG-Xg-A3s">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1iK-B2-7BN">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1iK-B2-7BN" customClass="UmbrellaView" customModule="CitCat" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nJI-o9-a2W" customClass="GridView" customModule="CitCat" customModuleProvider="target">
@@ -38,24 +38,27 @@
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <connections>
+                                            <outlet property="gridView" destination="nJI-o9-a2W" id="KKO-7G-TJh"/>
+                                            <outlet property="mainImageView" destination="ul4-pP-0be" id="f2h-KJ-5eo"/>
+                                            <outlet property="tempImageView" destination="iPr-1g-IrZ" id="zrg-0d-YNI"/>
+                                        </connections>
                                     </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="1iK-B2-7BN" firstAttribute="top" secondItem="5fG-Xg-A3s" secondAttribute="top" id="2kd-j4-DU2"/>
                                     <constraint firstItem="1iK-B2-7BN" firstAttribute="height" secondItem="BSN-wv-PGk" secondAttribute="height" priority="250" id="95K-8o-Mc9"/>
                                     <constraint firstItem="1iK-B2-7BN" firstAttribute="trailing" secondItem="kTZ-Xe-OIH" secondAttribute="trailing" id="Cra-Wr-xD2"/>
+                                    <constraint firstAttribute="trailing" secondItem="1iK-B2-7BN" secondAttribute="trailing" id="DF7-dh-meH"/>
                                     <constraint firstItem="1iK-B2-7BN" firstAttribute="bottom" secondItem="kTZ-Xe-OIH" secondAttribute="bottom" id="DHA-de-qHi"/>
                                     <constraint firstItem="1iK-B2-7BN" firstAttribute="leading" secondItem="kTZ-Xe-OIH" secondAttribute="leading" id="GRB-Di-Ia7"/>
                                     <constraint firstItem="1iK-B2-7BN" firstAttribute="width" secondItem="BSN-wv-PGk" secondAttribute="width" priority="250" id="UQY-Vt-QqP"/>
+                                    <constraint firstItem="1iK-B2-7BN" firstAttribute="leading" secondItem="5fG-Xg-A3s" secondAttribute="leading" id="WnC-Qz-rji"/>
+                                    <constraint firstAttribute="bottom" secondItem="1iK-B2-7BN" secondAttribute="bottom" id="XW1-Xi-NFu"/>
                                     <constraint firstItem="1iK-B2-7BN" firstAttribute="top" secondItem="kTZ-Xe-OIH" secondAttribute="top" id="teo-4I-T31"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="kTZ-Xe-OIH"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="BSN-wv-PGk"/>
-                                <connections>
-                                    <outlet property="gridView" destination="nJI-o9-a2W" id="a3q-Tg-bdE"/>
-                                    <outlet property="mainImageView" destination="ul4-pP-0be" id="Ah4-ky-L8L"/>
-                                    <outlet property="tempImageView" destination="iPr-1g-IrZ" id="8Ye-kv-Wav"/>
-                                    <outlet property="view" destination="1iK-B2-7BN" id="XbI-hW-SK1"/>
-                                </connections>
                             </scrollView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Color: Black" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qYA-Ds-o5V">
                                 <rect key="frame" x="155" y="72" width="123" height="58"/>
@@ -69,7 +72,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Reset"/>
                                 <connections>
-                                    <action selector="resetPressed:" destination="5fG-Xg-A3s" eventType="touchUpInside" id="qtC-h9-RlY"/>
+                                    <action selector="resetPressed:" destination="1iK-B2-7BN" eventType="touchUpInside" id="40w-hg-qco"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1IL-Qh-MOv">
@@ -77,7 +80,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Eraser"/>
                                 <connections>
-                                    <action selector="eraserMode:" destination="5fG-Xg-A3s" eventType="touchUpInside" id="Ccb-lU-KsK"/>
+                                    <action selector="eraserMode:" destination="1iK-B2-7BN" eventType="touchUpInside" id="Gcn-wg-xZg"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ybb-9S-Kjx">
@@ -85,7 +88,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Draw"/>
                                 <connections>
-                                    <action selector="drawMode:" destination="5fG-Xg-A3s" eventType="touchUpInside" id="TIy-nd-zGw"/>
+                                    <action selector="drawMode:" destination="1iK-B2-7BN" eventType="touchUpInside" id="4ch-9B-Yss"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4kY-sZ-zOJ">
@@ -93,7 +96,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="SwitchStroke"/>
                                 <connections>
-                                    <action selector="switchStroke:" destination="5fG-Xg-A3s" eventType="touchUpInside" id="qfi-I0-1v5"/>
+                                    <action selector="switchStroke:" destination="1iK-B2-7BN" eventType="touchUpInside" id="yTw-nJ-kf7"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NkO-FB-ZZl" userLabel="GridMode">
@@ -102,7 +105,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="GridMode"/>
                                 <connections>
-                                    <action selector="gridMode:" destination="5fG-Xg-A3s" eventType="touchUpInside" id="bqB-l3-21M"/>
+                                    <action selector="gridMode:" destination="1iK-B2-7BN" eventType="touchUpInside" id="8zs-Q9-PIv"/>
                                 </connections>
                             </button>
                         </subviews>

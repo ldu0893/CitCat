@@ -7,9 +7,8 @@
 
 import UIKit
 
-class UmbrellaScrollView: UIScrollView {
+class UmbrellaView: UIView {
     
-    @IBOutlet var view: UIView!
     @IBOutlet var gridView: GridView!
     @IBOutlet var tempImageView: UIImageView!
     @IBOutlet var mainImageView: UIImageView!
@@ -27,7 +26,7 @@ class UmbrellaScrollView: UIScrollView {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         //print("touchesBegan")
         guard let touch = touches.first else { return  }
-        lastPoint = touch.location(in: view)
+        lastPoint = touch.location(in: self)
         if grid {
             lastPoint = CGPoint(x: round(lastPoint.x / gridWidth) * gridWidth, y: round(lastPoint.y / gridHeight) * gridHeight)
         }
@@ -59,9 +58,9 @@ class UmbrellaScrollView: UIScrollView {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         
-        UIGraphicsBeginImageContext(view.frame.size)
-        mainImageView.image?.draw(in: view.bounds, blendMode: .normal, alpha: 1)
-        tempImageView.image?.draw(in: view.bounds, blendMode: .normal, alpha: opacity)
+        UIGraphicsBeginImageContext(self.frame.size)
+        mainImageView.image?.draw(in: self.bounds, blendMode: .normal, alpha: 1)
+        tempImageView.image?.draw(in: self.bounds, blendMode: .normal, alpha: opacity)
         
         mainImageView.image = UIGraphicsGetImageFromCurrentImageContext()
         
@@ -103,11 +102,11 @@ class UmbrellaScrollView: UIScrollView {
        
     
     func drawLine(from fromPoint: CGPoint, to toPoint: CGPoint) {
-        UIGraphicsBeginImageContext(view.frame.size)
+        UIGraphicsBeginImageContext(self.frame.size)
         
         guard let context = UIGraphicsGetCurrentContext() else { return }
         
-        tempImageView.image?.draw(in: view.bounds)
+        tempImageView.image?.draw(in: self.bounds)
         
         context.move(to: fromPoint)
         context.addLine(to: toPoint)
