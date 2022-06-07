@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="t3i-cG-vHP">
+    <device id="ipad12_9rounded" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TestingZoomingStraightLine" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" pagingEnabled="YES" minimumZoomScale="-100" maximumZoomScale="100" translatesAutoresizingMaskIntoConstraints="NO" id="6K2-45-NEV">
+                                <rect key="frame" x="0.0" y="64" width="1024" height="1302"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u5p-M2-GUB" customClass="UmbrellaView" customModule="TestingZoomingStraightLine" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="-10" width="1016" height="1302"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o1a-z7-xmY" customClass="GridView" customModule="TestingZoomingStraightLine" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="4" width="1016" height="1294"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </view>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="93M-Qr-s6C">
+                                                <rect key="frame" x="0.0" y="0.0" width="1016" height="1302"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K7N-r9-TaB">
+                                                <rect key="frame" x="0.0" y="0.0" width="1016" height="1302"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <connections>
+                                            <outlet property="gridView" destination="o1a-z7-xmY" id="AoD-bV-iHL"/>
+                                            <outlet property="mainImageView" destination="K7N-r9-TaB" id="D93-Hq-dW7"/>
+                                            <outlet property="tempImageView" destination="93M-Qr-s6C" id="BqA-rP-FcA"/>
+                                        </connections>
+                                    </view>
+                                </subviews>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X9A-sW-Ajc">
+                                <rect key="frame" x="16" y="153" width="87" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Draw"/>
+                                <connections>
+                                    <action selector="drawMode:" destination="u5p-M2-GUB" eventType="touchUpInside" id="SH9-f1-xMX"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mtw-Px-0jZ">
+                                <rect key="frame" x="99" y="108" width="79" height="58"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Reset"/>
+                                <connections>
+                                    <action selector="resetPressed:" destination="u5p-M2-GUB" eventType="touchUpInside" id="wD8-Of-Oua"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eGZ-m1-Xox">
+                                <rect key="frame" x="223" y="128" width="46" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Eraser"/>
+                                <connections>
+                                    <action selector="eraserMode:" destination="u5p-M2-GUB" eventType="touchUpInside" id="J5d-xB-vbc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XgE-QQ-p6V">
+                                <rect key="frame" x="14" y="67" width="91" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="SwitchStroke"/>
+                                <connections>
+                                    <action selector="switchStroke:" destination="u5p-M2-GUB" eventType="touchUpInside" id="gSg-ic-txa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JlA-cD-qUz">
+                                <rect key="frame" x="145" y="50" width="124" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="SwitchScroll"/>
+                                <connections>
+                                    <action selector="scrollSwitch:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iea-lZ-IPO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AqK-Bf-cau">
+                                <rect key="frame" x="297" y="100" width="62" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <segue destination="7BQ-NI-kF5" kind="show" id="jxJ-67-UYx"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TSA-jB-JmL">
+                                <rect key="frame" x="111" y="177" width="67" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Grid"/>
+                                <connections>
+                                    <action selector="gridMode:" destination="u5p-M2-GUB" eventType="touchUpInside" id="QB9-eo-msP"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="6K2-45-NEV" secondAttribute="bottom" id="3Ss-4t-PxW"/>
+                            <constraint firstItem="6K2-45-NEV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="9JW-m2-7QM"/>
+                            <constraint firstItem="6K2-45-NEV" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="J7p-AO-8hi"/>
+                            <constraint firstItem="6K2-45-NEV" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="eC8-Wh-djy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Q8p-AU-45s"/>
+                    <connections>
+                        <outlet property="gridView" destination="o1a-z7-xmY" id="2lG-Rb-6Q4"/>
+                        <outlet property="mainImageView" destination="K7N-r9-TaB" id="PLG-As-zVd"/>
+                        <outlet property="scrollView" destination="6K2-45-NEV" id="ePg-B5-DHP"/>
+                        <outlet property="tempImageView" destination="93M-Qr-s6C" id="wmO-hZ-UgU"/>
+                        <outlet property="umbrellaView" destination="u5p-M2-GUB" id="KC6-z8-onB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1071.09375" y="133.52855051244509"/>
+        </scene>
+        <!--Second View Controller-->
+        <scene sceneID="O6m-MX-sCv">
+            <objects>
+                <viewController id="7BQ-NI-kF5" customClass="SecondViewController" customModule="TestingZoomingStraightLine" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sS3-GW-ikf">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" minimumZoomScale="-50" maximumZoomScale="50" translatesAutoresizingMaskIntoConstraints="NO" id="BhK-uN-zzb">
+                                <rect key="frame" x="0.0" y="74" width="1024" height="1272"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="IMG_5205" translatesAutoresizingMaskIntoConstraints="NO" id="1wc-3R-uA6">
+                                        <rect key="frame" x="8" y="163" width="1016" height="947"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="BhK-uN-zzb" firstAttribute="bottom" secondItem="6Z3-ev-5Qi" secondAttribute="bottom" id="ELP-YQ-ftG"/>
+                            <constraint firstItem="BhK-uN-zzb" firstAttribute="leading" secondItem="6Z3-ev-5Qi" secondAttribute="leading" id="S1l-F7-arq"/>
+                            <constraint firstItem="BhK-uN-zzb" firstAttribute="trailing" secondItem="6Z3-ev-5Qi" secondAttribute="trailing" id="Sbo-hJ-5W9"/>
+                            <constraint firstItem="BhK-uN-zzb" firstAttribute="top" secondItem="6Z3-ev-5Qi" secondAttribute="top" id="lcv-aS-bP1"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Z3-ev-5Qi"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="1wc-3R-uA6" id="EfK-W3-Smv"/>
+                        <outlet property="scrollView" destination="BhK-uN-zzb" id="cbt-Gg-YSI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fuc-tK-4rC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1987.4999999999998" y="136.16398243045387"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="FYd-ZN-eZg">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="t3i-cG-vHP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="X7n-5X-QIe">
+                        <rect key="frame" x="0.0" y="24" width="1024" height="50"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="se3-l1-au3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZQM-ES-UJi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="132" y="133.5832083958021"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="IMG_5205" width="699" height="699"/>
+    </resources>
+</document>
