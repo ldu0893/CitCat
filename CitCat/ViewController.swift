@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet var gridView: GridView!
     @IBOutlet var tempImageView: UIImageView!
@@ -29,11 +29,16 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        scrollView.delegate = self
         print("viewDidLoad")
         scrollView.isScrollEnabled = false
         umbrellaView.noDraw = false
-        gridView.gridWidth = gridView.bounds.width / 10
-        gridView.gridHeight = gridView.bounds.height / 10
+        gridView.gridWidth = UIScreen.main.bounds.size.width / 5 //arbitrary auto scaling dependent on device size
+        gridView.gridHeight = gridView.gridWidth
+    }
+    
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return mainImageView
     }
     
     @IBAction func scrollSwitch(_ sender: Any) {

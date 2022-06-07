@@ -21,21 +21,20 @@
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1iK-B2-7BN" customClass="UmbrellaView" customModule="CitCat" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="2000" height="2000"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="2049" height="2049"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nJI-o9-a2W" customClass="GridView" customModule="CitCat" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="2000" height="2000"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="2049" height="2049"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="2000" id="Uze-sF-Nxb"/>
-                                                    <constraint firstAttribute="width" constant="2000" id="e0T-7Q-FR7"/>
+                                                    <constraint firstAttribute="width" secondItem="nJI-o9-a2W" secondAttribute="height" multiplier="1:1" id="nSm-6n-WrE"/>
                                                 </constraints>
                                             </view>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="iPr-1g-IrZ">
-                                                <rect key="frame" x="0.0" y="0.0" width="2000" height="2000"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="2049" height="2049"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ul4-pP-0be">
-                                                <rect key="frame" x="0.0" y="0.0" width="2000" height="2000"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="2049" height="2049"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -62,9 +61,11 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="1iK-B2-7BN" firstAttribute="top" secondItem="kTZ-Xe-OIH" secondAttribute="top" id="0BZ-GM-2Yc"/>
+                                    <constraint firstItem="1iK-B2-7BN" firstAttribute="centerX" secondItem="kTZ-Xe-OIH" secondAttribute="centerX" id="BCW-Pv-rn3"/>
                                     <constraint firstItem="1iK-B2-7BN" firstAttribute="trailing" secondItem="kTZ-Xe-OIH" secondAttribute="trailing" id="Bgr-K4-zqx"/>
                                     <constraint firstItem="1iK-B2-7BN" firstAttribute="leading" secondItem="kTZ-Xe-OIH" secondAttribute="leading" id="CXI-fT-Xq8"/>
                                     <constraint firstItem="1iK-B2-7BN" firstAttribute="bottom" secondItem="kTZ-Xe-OIH" secondAttribute="bottom" id="ag3-Lf-NMB"/>
+                                    <constraint firstItem="1iK-B2-7BN" firstAttribute="centerY" secondItem="kTZ-Xe-OIH" secondAttribute="centerY" id="ojo-ui-8Bd"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="kTZ-Xe-OIH"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="BSN-wv-PGk"/>
@@ -132,6 +133,7 @@
                         <constraints>
                             <constraint firstItem="5fG-Xg-A3s" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="33P-kp-vHd"/>
                             <constraint firstItem="5fG-Xg-A3s" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Edw-D2-VcD"/>
+                            <constraint firstItem="nJI-o9-a2W" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="1.5" id="ML6-2l-HWE"/>
                             <constraint firstAttribute="bottom" secondItem="5fG-Xg-A3s" secondAttribute="bottom" id="NeK-i7-32g"/>
                             <constraint firstItem="5fG-Xg-A3s" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="fav-Ac-5bE"/>
                         </constraints>
