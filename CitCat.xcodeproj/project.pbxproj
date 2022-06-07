@@ -13,6 +13,8 @@
 		4550DC0D27E3D9BA0044156C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4550DC0B27E3D9BA0044156C /* Main.storyboard */; };
 		4550DC0F27E3D9BB0044156C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4550DC0E27E3D9BB0044156C /* Assets.xcassets */; };
 		4550DC1227E3D9BB0044156C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4550DC1027E3D9BB0044156C /* LaunchScreen.storyboard */; };
+		CF7FC1D02848103100A55730 /* GridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7FC1CF2848103100A55730 /* GridView.swift */; };
+		CF7FC1D22848115E00A55730 /* UmbrellaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF7FC1D12848115E00A55730 /* UmbrellaView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		4550DC0E27E3D9BB0044156C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4550DC1127E3D9BB0044156C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4550DC1327E3D9BB0044156C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF7FC1CF2848103100A55730 /* GridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridView.swift; sourceTree = "<group>"; };
+		CF7FC1D12848115E00A55730 /* UmbrellaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UmbrellaView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,8 @@
 				4550DC0527E3D9BA0044156C /* AppDelegate.swift */,
 				4550DC0727E3D9BA0044156C /* SceneDelegate.swift */,
 				4550DC0927E3D9BA0044156C /* ViewController.swift */,
+				CF7FC1CF2848103100A55730 /* GridView.swift */,
+				CF7FC1D12848115E00A55730 /* UmbrellaView.swift */,
 				4550DC0B27E3D9BA0044156C /* Main.storyboard */,
 				4550DC0E27E3D9BB0044156C /* Assets.xcassets */,
 				4550DC1027E3D9BB0044156C /* LaunchScreen.storyboard */,
@@ -139,6 +145,8 @@
 			files = (
 				4550DC0A27E3D9BA0044156C /* ViewController.swift in Sources */,
 				4550DC0627E3D9BA0044156C /* AppDelegate.swift in Sources */,
+				CF7FC1D22848115E00A55730 /* UmbrellaView.swift in Sources */,
+				CF7FC1D02848103100A55730 /* GridView.swift in Sources */,
 				4550DC0827E3D9BA0044156C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
