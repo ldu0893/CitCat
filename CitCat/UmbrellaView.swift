@@ -58,7 +58,7 @@ class UmbrellaView: UIView {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         
-        UIGraphicsBeginImageContext(self.frame.size)
+        UIGraphicsBeginImageContext(mainImageView.frame.size)
         mainImageView.image?.draw(in: self.bounds, blendMode: .normal, alpha: 1)
         tempImageView.image?.draw(in: self.bounds, blendMode: .normal, alpha: opacity)
         
@@ -105,7 +105,7 @@ class UmbrellaView: UIView {
         
         if noDraw { return }
         
-        UIGraphicsBeginImageContext(self.frame.size)
+        UIGraphicsBeginImageContext(mainImageView.frame.size)
         
         guard let context = UIGraphicsGetCurrentContext() else { return }
         

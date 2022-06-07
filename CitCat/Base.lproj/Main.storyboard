@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5fG-Xg-A3s">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="50" translatesAutoresizingMaskIntoConstraints="NO" id="5fG-Xg-A3s">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1iK-B2-7BN" customClass="UmbrellaView" customModule="CitCat" customModuleProvider="target">
@@ -69,6 +69,9 @@
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="kTZ-Xe-OIH"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="BSN-wv-PGk"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="vwc-tI-hVq"/>
+                                </connections>
                             </scrollView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Color: Black" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qYA-Ds-o5V">
                                 <rect key="frame" x="155" y="72" width="123" height="58"/>
