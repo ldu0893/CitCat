@@ -38,7 +38,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     }
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
-        return umbrellaView
+        return umbrellaView //zoom in umbrellaView
     }
     
     @IBAction func scrollSwitch(_ sender: Any) {
