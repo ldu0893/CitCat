@@ -28,7 +28,7 @@ class UmbrellaView: UIView {
         guard let touch = touches.first else { return  }
         lastPoint = touch.location(in: self)
         if grid {
-            lastPoint = CGPoint(x: round(lastPoint.x / gridView.gridWidth) * gridView.gridWidth, y: round(lastPoint.y / gridView.gridHeight) * gridView.gridHeight)
+            lastPoint = CGPoint(x: round(round(lastPoint.x / gridView.gridWidth) * gridView.gridWidth), y: round(round(lastPoint.y / gridView.gridHeight) * gridView.gridHeight))
         }
         
         
@@ -42,11 +42,30 @@ class UmbrellaView: UIView {
         var actualPoint = currentPoint
         
         if grid {
-            actualPoint = CGPoint(x: round(actualPoint.x / gridView.gridWidth) * gridView.gridWidth, y: round(actualPoint.y / gridView.gridHeight) * gridView.gridHeight)
+            actualPoint = CGPoint(x: round(round(actualPoint.x / gridView.gridWidth) * gridView.gridWidth), y: round(round(actualPoint.y / gridView.gridHeight) * gridView.gridHeight))
             if lastPoint == actualPoint { return }
             print(actualPoint.y - lastPoint.y)
-            drawLine(from: lastPoint, to: actualPoint)
-            lastPoint = actualPoint
+            if abs(actualPoint.x - lastPoint.x) > gridView.gridWidth || abs(actualPoint.y - lastPoint.y) > gridView.gridHeight || (abs(actualPoint.x - lastPoint.x) == gridView.gridWidth && abs(actualPoint.y - lastPoint.y) == gridView.gridHeight) {
+                var w = abs(actualPoint.x - lastPoint.x) / gridView.gridWidth
+                var h = abs(actualPoint.y - lastPoint.y) / gridView.gridHeight
+                while w > 0 || h > 0 {
+                    if w > 0 {
+                        let q = CGPoint(x: lastPoint.x + (actualPoint.x - lastPoint.x) / w, y: lastPoint.y)
+                        drawLine(from: lastPoint, to: q)
+                        lastPoint = q
+                        w -= 1
+                    }
+                    if h > 0 {
+                        let q = CGPoint(x: lastPoint.x, y: lastPoint.y + (actualPoint.y - lastPoint.y) / h)
+                        drawLine(from: lastPoint, to: q)
+                        lastPoint = q
+                        h -= 1
+                    }
+                }
+            } else {
+                drawLine(from: lastPoint, to: actualPoint)
+                lastPoint = actualPoint
+            }
         } else if straight {
             tempImageView.image = nil
             drawLine(from: lastPoint, to: actualPoint)

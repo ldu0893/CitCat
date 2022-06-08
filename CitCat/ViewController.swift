@@ -33,8 +33,9 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         print("viewDidLoad")
         scrollView.isScrollEnabled = false
         umbrellaView.noDraw = false
-        gridView.gridWidth = UIScreen.main.bounds.size.width / 5 //arbitrary auto scaling dependent on device size
+        gridView.gridWidth = round(UIScreen.main.bounds.size.width / 20) //arbitrary auto scaling dependent on device size
         gridView.gridHeight = gridView.gridWidth
+        print("gridWidth \(gridView.gridWidth)")
     }
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
