@@ -13,6 +13,9 @@ class UmbrellaView: UIView {
     @IBOutlet var tempImageView: UIImageView!
     @IBOutlet var mainImageView: UIImageView!
     
+    var lines = [[CGPoint]]()
+    var currLine = [CGPoint]()
+    
     var lastPoint: CGPoint = CGPoint.zero
     var color: UIColor = UIColor.black
     var brushWidth: CGFloat = 3.0
@@ -30,6 +33,7 @@ class UmbrellaView: UIView {
         if grid {
             lastPoint = CGPoint(x: round(round(lastPoint.x / gridView.gridWidth) * gridView.gridWidth), y: round(round(lastPoint.y / gridView.gridHeight) * gridView.gridHeight))
         }
+        currLine.append(lastPoint)
         
         
     }
@@ -49,20 +53,23 @@ class UmbrellaView: UIView {
                 var w = abs(actualPoint.x - lastPoint.x) / gridView.gridWidth
                 var h = abs(actualPoint.y - lastPoint.y) / gridView.gridHeight
                 while w > 0 || h > 0 {
-                    if w > 0 {
+                    while w > 0 {
                         let q = CGPoint(x: lastPoint.x + (actualPoint.x - lastPoint.x) / w, y: lastPoint.y)
+                        currLine.append(q)
                         drawLine(from: lastPoint, to: q)
                         lastPoint = q
                         w -= 1
                     }
-                    if h > 0 {
+                    while h > 0 {
                         let q = CGPoint(x: lastPoint.x, y: lastPoint.y + (actualPoint.y - lastPoint.y) / h)
+                        currLine.append(q)
                         drawLine(from: lastPoint, to: q)
                         lastPoint = q
                         h -= 1
                     }
                 }
             } else {
+                currLine.append(actualPoint)
                 drawLine(from: lastPoint, to: actualPoint)
                 lastPoint = actualPoint
             }
@@ -70,11 +77,15 @@ class UmbrellaView: UIView {
             tempImageView.image = nil
             drawLine(from: lastPoint, to: actualPoint)
         } else {
+            currLine.append(actualPoint)
             drawLine(from: lastPoint, to: actualPoint)
             lastPoint = actualPoint
         }
     }
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        lines.append(currLine)
+        currLine = [CGPoint]()
         
         
         UIGraphicsBeginImageContext(mainImageView.frame.size)
@@ -89,8 +100,21 @@ class UmbrellaView: UIView {
     }
 
     @IBAction func resetPressed(_ sender: Any) {
-        
+        lines = [[CGPoint]]()
+        currLine = [CGPoint]()
         mainImageView.image = nil
+    }
+    
+    @IBAction func undoPressed(_ sender: Any) {
+        if lines.isEmpty { return }
+        lines.removeLast()
+        mainImageView.image = nil
+        
+        for line in lines {
+            for i in line.indices.dropLast() {
+                drawLine(from: line[i], to: line[i+1])
+            }
+        }
     }
     
     @IBAction func eraserMode(_ sender: Any) {
